@@ -1,4 +1,4 @@
-import {Command} from '@oclif/command'
+import {Command, flags} from '@oclif/command'
 
 export default class Flipper extends Command {
   static description = 'Takes a single argument as a string and flips its case.';
@@ -11,6 +11,10 @@ export default class Flipper extends Command {
     '$ unicron flipper woweEeEe \nWOWEeEeE\n',
     '$ unicron flipper multiple strings "to INVERT" \nMULTIPLE\nSTRINGS\nTO invert',
   ];
+
+  static flags = {
+    help: flags.help({ char: 'h' }),
+  }
 
   isLowerCase(character: string): boolean {
     return character === character.toLowerCase();
